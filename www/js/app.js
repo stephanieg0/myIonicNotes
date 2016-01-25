@@ -29,7 +29,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/notelist.html',
-    controller: 'AppCtrl'
+    controller: 'noteListCtrl'
   })
 
     .state('app.main', {
@@ -41,6 +41,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+    .state('app.note', {
+      url: '/note',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/note.html',
+          controller: 'noteCtrl'
+        }
+      }
+    })
+
 
     // .state('app.single', {
     //   url: '/notes/:notelistId',
