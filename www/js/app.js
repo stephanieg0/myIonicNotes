@@ -29,7 +29,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/notelist.html',
-    controller: 'noteListCtrl'
+    controller: 'noteListCtrl',
+    reload: true
   })
 
     .state('app.main', {
@@ -37,7 +38,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/main.html',
-          controller: 'mainCtrl'
+          controller: 'mainCtrl',
+          reload: true
         }
       }
     })
@@ -53,7 +55,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 
     .state('app.single', {
-      url: '/notes/:notelistId',
+      url: '/note/:notelistId',
       views: {
         'menuContent': {
           templateUrl: 'templates/note.html',
