@@ -1,9 +1,16 @@
 angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 
 //note list side bar
-.controller('noteListCtrl', function($scope, $state, noteStorageFactory) {
+.controller('noteListCtrl', function($scope, $state, $stateParams, noteStorageFactory) {
 
   $scope.notelist = noteStorageFactory.setNoteObj();
+
+  //getting single note id from stateParams.
+  $scope.noteid = $stateParams.notelistId;
+
+
+
+
   // $scope.notelist = [
   //   { title: 'Reggae', id: 1 },
   //   { title: 'Chill', id: 2 },
@@ -39,23 +46,27 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
     //setting note object in local storage.
     localStorage.setItem('notes', JSON.stringify($scope.notelist));
 
-    //loading new note partial after button is clicked.
-    $state.go('app.single', {url: '#/app/note/'});
+    //loading new note partial and storing noteid in $stateParams (view app.js app.single)
+    $state.go('app.single', {url: '#/app/note/', notelistId: noteid});
   }
 
 })//end of controller
 
 //single note text area
 .controller('noteCtrl', function($scope, $stateParams, noteStorageFactory) {
-  $scope.note = $stateParams.notelistId;
-  //console.log('stateparams', $scope.note);
+  //getting single note id from stateParams.
+  $scope.noteid = $stateParams.notelistId;
 
+  //getting entire note list obj to handpick id.
   $scope.notelist = noteStorageFactory.setNoteObj();
 
-  console.log("notelistObject", $scope.notelist);
+  //$scope.noteTitle = $scope.notelist[$scope.noteid].title;
 
-  $scope.$watch('', function(){
+  //$scope.noteContent = $scope.notelist[$scope.noteid].content;
 
+  //watch function to save note.
+  $scope.$watch('noteContent', function(){
+    //console.log($scope.noteContent);
   });
 
 });//end of controller
