@@ -52,15 +52,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
 
-    // .state('app.single', {
-    //   url: '/notes/:notelistId',
-    //   views: {
-    //     'menuContent': {
-    //       templateUrl: 'templates/notelist.html',
-    //       controller: 'notelistCtrl'
-    //     }
-    //   }
-    // });
+    .state('app.single', {
+      url: '/notes/:notelistId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/note.html',
+          controller: 'noteCtrl'
+        }
+      }
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/main');
 });

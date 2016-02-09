@@ -14,7 +14,15 @@ angular.module('starter.controllers', [])
 
 })//end of controller
 
-.controller('mainCtrl', function($scope) {
+.controller('mainCtrl', function($scope, $state) {
+
+  var newNote = document.getElementById('new-note-button');
+  $scope.NewNote = function () {
+    console.log('button works!');
+
+    //loading new note partial
+    $state.go('app.single', {url: '#/app/note/'});
+  }
 
 })//end of controller
 
