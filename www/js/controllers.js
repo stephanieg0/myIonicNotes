@@ -4,21 +4,10 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 .controller('noteListCtrl', function($scope, $state, $stateParams, noteStorageFactory) {
 
   $scope.notelist = noteStorageFactory.setNoteObj();
-
-  //getting single note id from stateParams.
   $scope.noteid = $stateParams.notelistId;
+  $scope.singlenote = $scope.notelist[$scope.noteid];
 
-
-
-
-  // $scope.notelist = [
-  //   { title: 'Reggae', id: 1 },
-  //   { title: 'Chill', id: 2 },
-  //   { title: 'Dubstep', id: 3 },
-  //   { title: 'Indie', id: 4 },
-  //   { title: 'Rap', id: 5 },
-  //   { title: 'Cowbell', id: 6 }
-  // ];
+  console.log($scope.singlenote);
 
   $scope.HomeButton = function () {
 
@@ -60,13 +49,15 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
   //getting entire note list obj to handpick id.
   $scope.notelist = noteStorageFactory.setNoteObj();
 
-  //$scope.noteTitle = $scope.notelist[$scope.noteid].title;
+  $scope.noteTitle = $scope.notelist[$scope.noteid].title;
 
-  //$scope.noteContent = $scope.notelist[$scope.noteid].content;
+  $scope.noteContent = $scope.notelist[$scope.noteid].content;
 
   //watch function to save note.
   $scope.$watch('noteContent', function(){
-    //console.log($scope.noteContent);
+    console.log($scope.noteContent);
+    //localStorage.setItem('notes', JSON.stringify($scope.noteContent));
+
   });
 
 });//end of controller
