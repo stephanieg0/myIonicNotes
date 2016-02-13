@@ -1,20 +1,20 @@
 angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 
 //note list side bar
-.controller('noteListCtrl', function($scope, $state, $stateParams, noteStorageFactory) {
+.controller('noteListCtrl', function($scope, $state, noteStorageFactory) {
 
   $scope.notelist = noteStorageFactory.setNoteObj();
-  $scope.noteid = $stateParams.notelistId;
-  $scope.singlenote = $scope.notelist[$scope.noteid];
 
-  console.log($scope.singlenote);
+  console.log('noteListCtrl', $scope.notelist);
 
+  //home button available in nav-bar
   $scope.HomeButton = function () {
 
     $state.go('app.main', {url: '#/app/main/'});
   }
 
 })//end of controller
+
 
 //main section for adding notes.
 .controller('mainCtrl', function($scope, $state, idFactory, noteStorageFactory){
@@ -29,8 +29,8 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 
     $scope.notelist[noteid] = {
       title: 'untitled',
-      content: ''
-    }
+      content: 'this is content'
+      }
 
     //setting note object in local storage.
     localStorage.setItem('notes', JSON.stringify($scope.notelist));
@@ -40,6 +40,7 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
   }
 
 })//end of controller
+
 
 //single note text area
 .controller('noteCtrl', function($scope, $stateParams, noteStorageFactory) {
@@ -53,11 +54,18 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 
   $scope.noteContent = $scope.notelist[$scope.noteid].content;
 
-  //watch function to save note.
+  //watch function is watching the text area in html template
   $scope.$watch('noteContent', function(){
-    console.log($scope.noteContent);
-    //localStorage.setItem('notes', JSON.stringify($scope.noteContent));
 
-  });
+    //updating notelist object
+    $scope.notelist[$scope.noteid] = {
+      title: $scope.noteTitle,
+      content: $scope.noteContent
+    }
+
+    //setting storage with new object
+    localStorage.setItem('notes', JSON.stringify($scope.notelist));
+
+  }, true);
 
 });//end of controller

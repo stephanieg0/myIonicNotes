@@ -24,8 +24,8 @@
       <ion-view title="Note List">
       <ion-content>
         <ion-list>
-          <ion-item menu-close ng-repeat="note in notelist" href="#/app/note/{{singlenote}}">
-          {{note.title}}
+          <ion-item menu-close ng-repeat="(key, value) in notelist" href="#/app/note/{{key}}">
+          {{value.title}}
           </ion-item>
 
 
