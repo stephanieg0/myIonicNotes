@@ -5,10 +5,11 @@
 }
 .title {
   color: white;
+  text-align: center;
 }
 
 #home-button{
-  background-color: #CDDC39;
+  background-color: white;
   border: none;
   font-size: 25px;
   position: absolute;
@@ -17,28 +18,65 @@
   right: -6px;
 }
 
-#new-note-button {
-  background-color: #CDDC39;
-  border: none;
-  font-size: 18px;
-  height: 43px;
-  margin: 0 35%;
-  border-radius: 5px;
-}
+
 /*  MAIN */
 .ion-ionic {
   font-size: 20px;
 }
-
-#content-main {
+.button-container {
+  width: 100%;
+}
+.container-main {
+  width: 100%;
+}
+#new-note-button {
+  background-color: white;
+  font-size: 18px;
+  height: 43px;
+  width: 100%;
+  border-radius: 5px;
+  position: auto;
+  color: #880E4F;
+}
+#background-image {
+  width: 100%;
   background-image: url('../img/backgroundimage.jpeg');
   background-repeat: no-repeat;
+  background-size: auto;
+  background-position: 58% 0;
 }
 
 /* NOTE LIST */
-
-.delete-button {
+/*.delete-button {
   z-index: 10;
   height: 40px;
   width: 60px;
+}*/
+.note-item:nth-child(odd){
+  background-color: #D6D6D6;
+}
+.notetitle-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* NOTE */
+#title {
+  padding: 15px 20px 0 20px;
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  resize: none;
+  line-height: 1em;
+  width: 100%;
+}
+#content {
+  width: 100%;
+  min-height: 250px;
+  resize: none;
+  padding: 10px 20px 0 20px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  border-top: 1px dotted gray;
+  border-bottom: 1px dotted gray;
 }

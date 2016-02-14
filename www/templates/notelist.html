@@ -20,15 +20,16 @@
   <!-- Nav bar Note List -->
   <ion-side-menu side="left">
     <ion-header-bar class="nav-color">
-      <h1 class="title">Note List</h1>
+      <h1 class="title">Note List <i class="fa fa-files-o"></i></h1>
     </ion-header-bar>
 
       <ion-view title="Note List">
       <ion-content>
         <ion-list>
-          <ion-item menu-close ng-repeat="(key, value) in notelist" >
-          <a href="#/app/note/{{key}}">{{value.title}}</a>
-          <button id="{{key}}" class="delete-button">Delete</button>
+          <ion-item menu-close class="note-item" ng-repeat="(key, value) in notelist">
+          <i class="fa fa-file-o"></i> <a href="#/app/note/{{key}}" class="notetitle-link">{{value.title}}</a>
+
+          <!--<button id="{{key}}" class="delete-button">Delete</button>-->
           </ion-item>
         </ion-list>
       </ion-content>
