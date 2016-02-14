@@ -2,14 +2,12 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 
 //note list side bar
 .controller('noteListCtrl', function($scope, $state, noteStorageFactory) {
-
+  $scope.homeButtonHidden = false;
+  //getting note object from local storage
   $scope.notelist = noteStorageFactory.setNoteObj();
-
-  console.log('noteListCtrl', $scope.notelist);
 
   //home button available in nav-bar
   $scope.HomeButton = function () {
-
     $state.go('app.main', {url: '#/app/main/'});
   }
 
@@ -18,18 +16,18 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 
 //main section for adding notes.
 .controller('mainCtrl', function($scope, $state, idFactory, noteStorageFactory){
-
-  //getting object to be used for later. It will be empty if local storage is empty.
+  $scope.homeButtonHidden = true;
+  //getting note object from local storage. It will be empty object if no notes are added.
   $scope.noteObject = noteStorageFactory.setNoteObj();
 
+  //creating a new note with deafult keys
   $scope.NewNote = function () {
-
     //getting a unique id
     var noteid = idFactory.setId();
 
     $scope.notelist[noteid] = {
-      title: 'untitled',
-      content: 'this is content'
+      title: 'Untitled',
+      content: '...'
       }
 
     //setting note object in local storage.
@@ -38,21 +36,21 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
     //loading new note partial and storing noteid in $stateParams (view app.js app.single)
     $state.go('app.single', {url: '#/app/note/', notelistId: noteid});
   }
-
 })//end of controller
 
 
 //single note text area
 .controller('noteCtrl', function($scope, $stateParams, noteStorageFactory) {
-  //getting single note id from stateParams.
-  $scope.noteid = $stateParams.notelistId;
+    $scope.homeButtonHidden = false;
+    //getting single note id from stateParams.
+    $scope.noteid = $stateParams.notelistId;
 
-  //getting entire note list obj to handpick id.
-  $scope.notelist = noteStorageFactory.setNoteObj();
+    //getting entire note list obj to handpick id.
+    $scope.notelist = noteStorageFactory.setNoteObj();
 
-  $scope.noteTitle = $scope.notelist[$scope.noteid].title;
+    $scope.noteTitle = $scope.notelist[$scope.noteid].title;
 
-  $scope.noteContent = $scope.notelist[$scope.noteid].content;
+    $scope.noteContent = $scope.notelist[$scope.noteid].content;
 
   //watch function is watching the text area in html template
   $scope.$watch('noteContent', function(){

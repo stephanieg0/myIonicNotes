@@ -1,1 +1,44 @@
-/* Empty. Add your own CSS if you like */
+/* NAV BAR */
+.nav-color {
+  color: white;
+  background-color: #880E4F;
+}
+.title {
+  color: white;
+}
+
+#home-button{
+  background-color: #CDDC39;
+  border: none;
+  font-size: 25px;
+  position: absolute;
+  top: -6px;
+  bottom: -5px;
+  right: -6px;
+}
+
+#new-note-button {
+  background-color: #CDDC39;
+  border: none;
+  font-size: 18px;
+  height: 43px;
+  margin: 0 35%;
+  border-radius: 5px;
+}
+/*  MAIN */
+.ion-ionic {
+  font-size: 20px;
+}
+
+#content-main {
+  background-image: url('../img/backgroundimage.jpeg');
+  background-repeat: no-repeat;
+}
+
+/* NOTE LIST */
+
+.delete-button {
+  z-index: 10;
+  height: 40px;
+  width: 60px;
+}

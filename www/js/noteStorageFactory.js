@@ -2,6 +2,8 @@ angular.module('noteStorageFactory', []).factory('noteStorageFactory', [function
 
   var noteObject = "";
 
+  var userNameObj = "";
+
   return {
     //setting an empty object to fill later. This is not going to local storage yet.
     setNoteObj: function () {
