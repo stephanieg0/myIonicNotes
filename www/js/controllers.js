@@ -68,4 +68,18 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 
   }, true);
 
+  //watch function is watching the text area in html template
+  $scope.$watch('noteTitle', function(){
+
+    //updating notelist object
+    $scope.notelist[$scope.noteid] = {
+      title: $scope.noteTitle,
+      content: $scope.noteContent
+    }
+
+    //setting storage with new object
+    localStorage.setItem('notes', JSON.stringify($scope.notelist));
+
+  }, true);
+
 });//end of controller
