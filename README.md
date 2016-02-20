@@ -1,5 +1,6 @@
 # myIonicNotes
-Note app built with the ionic and cordova framework using the local storage for data storage.
+Note app built with ionic and cordova framework. 
+App is using local storage to store data.
 
 ##node version 4.2
 
