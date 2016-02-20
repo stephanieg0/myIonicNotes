@@ -27,12 +27,10 @@
       <ion-content>
         <ion-list>
           <ion-item menu-close class="note-item" ng-repeat="(key, value) in notelist">
-
-          <button id="{{key}}" class="delete-button" ng-click='deleteNote()'>Delete</button>
-
-          <i class="fa fa-file-o"></i> <a href="#/app/note/{{key}}" class="notetitle-link">{{value.title}}</a>
-
-
+            <button id="{{key}}" class="delete-button" ng-click='deleteNote()'>Delete</button>
+            <div class="notetitle-container">
+              <a href="#/app/note/{{key}}" class="notetitle-link">{{value.title}}</a>
+            </div>
           </ion-item>
         </ion-list>
       </ion-content>

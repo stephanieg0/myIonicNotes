@@ -9,13 +9,14 @@
 }
 
 #home-button{
-  background-color: white;
+  background-color: transparent;
   border: none;
-  font-size: 25px;
+  font-size: 27px;
   position: absolute;
   top: -6px;
   bottom: -5px;
   right: -6px;
+  color: white;
 }
 
 
@@ -64,9 +65,13 @@
 .note-item:nth-child(odd){
   background-color: #D6D6D6;
 }
+.notetitle-container {
+  margin-top: 10px;
+}
 .notetitle-link {
   text-decoration: none;
   color: black;
+  font-size: 18px;
 }
 
 /* NOTE */
