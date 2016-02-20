@@ -88,4 +88,9 @@ angular.module('starter.controllers', ['idFactory'])
 
   }, true);
 
+  $scope.saveNote = function () {
+    //setting storage with new object
+    localStorage.setItem('notes', JSON.stringify($scope.notelist));
+  }
+
 });//end of controller
