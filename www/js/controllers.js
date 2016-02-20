@@ -1,10 +1,17 @@
-angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
+angular.module('starter.controllers', ['idFactory'])
 
 //note list side bar
-.controller('noteListCtrl', function($scope, $state, noteStorageFactory) {
+.controller('noteListCtrl', function($scope, $state) {
   $scope.homeButtonHidden = false;
   //getting note object from local storage
-  $scope.notelist = noteStorageFactory.setNoteObj();
+  $scope.notelist = JSON.parse(localStorage.getItem("notes")) || {};
+
+  //deleting specific note with id and re-setting the local storage object
+  $scope.deleteNote = function () {
+    var noteId = event.target.id;
+    delete $scope.notelist[noteId];
+    localStorage.setItem('notes', JSON.stringify($scope.notelist));
+  }
 
   //home button available in nav-bar
   $scope.HomeButton = function () {
@@ -18,7 +25,8 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
 .controller('mainCtrl', function($scope, $state, idFactory, noteStorageFactory){
   $scope.homeButtonHidden = true;
   //getting note object from local storage. It will be empty object if no notes are added.
-  $scope.noteObject = noteStorageFactory.setNoteObj();
+  //$scope.noteObject = noteStorageFactory.setNoteObj();
+  $scope.noteObject = JSON.parse(localStorage.getItem("notes")) || {};
 
   //creating a new note with deafult keys
   $scope.NewNote = function () {
@@ -46,7 +54,7 @@ angular.module('starter.controllers', ['idFactory', 'noteStorageFactory'])
     $scope.noteid = $stateParams.notelistId;
 
     //getting entire note list obj to handpick id.
-    $scope.notelist = noteStorageFactory.setNoteObj();
+    $scope.notelist = JSON.parse(localStorage.getItem("notes")) || {};
 
     $scope.noteTitle = $scope.notelist[$scope.noteid].title;
 

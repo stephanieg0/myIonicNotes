@@ -23,13 +23,16 @@
       <h1 class="title">Note List <i class="fa fa-files-o"></i></h1>
     </ion-header-bar>
 
-      <ion-view title="Note List">
+      <ion-view title="Note List" cache-view="false">
       <ion-content>
         <ion-list>
           <ion-item menu-close class="note-item" ng-repeat="(key, value) in notelist">
+
+          <button id="{{key}}" class="delete-button" ng-click='deleteNote()'>Delete</button>
+
           <i class="fa fa-file-o"></i> <a href="#/app/note/{{key}}" class="notetitle-link">{{value.title}}</a>
 
-          <!--<button id="{{key}}" class="delete-button">Delete</button>-->
+
           </ion-item>
         </ion-list>
       </ion-content>

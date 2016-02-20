@@ -31,12 +31,13 @@
 }
 #new-note-button {
   background-color: white;
-  font-size: 18px;
-  height: 43px;
-  width: 100%;
-  border-radius: 5px;
+  font-size: 40px;
+  width: 65px;
+  border-radius: 50%;
   position: auto;
   color: #880E4F;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  border: none;
 }
 #background-image {
   width: 100%;
@@ -47,11 +48,19 @@
 }
 
 /* NOTE LIST */
-/*.delete-button {
-  z-index: 10;
+.delete-button {
+  float: right;
+  font-size: 12px;
+  width: 40px;
   height: 40px;
-  width: 60px;
-}*/
+  border-radius: 50%;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  border: none;
+  background-color: #880E4F;
+  color: white;
+  font-weight: 700;
+  padding: 0;
+}
 .note-item:nth-child(odd){
   background-color: #D6D6D6;
 }
