@@ -22,7 +22,7 @@ angular.module('starter.controllers', ['idFactory'])
 
 
 //main section for adding notes.
-.controller('mainCtrl', function($scope, $state, idFactory, noteStorageFactory){
+.controller('mainCtrl', function($scope, $state, idFactory){
   $scope.homeButtonHidden = true;
   //getting note object from local storage. It will be empty object if no notes are added.
   //$scope.noteObject = noteStorageFactory.setNoteObj();
@@ -48,7 +48,7 @@ angular.module('starter.controllers', ['idFactory'])
 
 
 //single note text area
-.controller('noteCtrl', function($scope, $stateParams, noteStorageFactory) {
+.controller('noteCtrl', function($scope, $stateParams) {
     $scope.homeButtonHidden = false;
     //getting single note id from stateParams.
     $scope.noteid = $stateParams.notelistId;
