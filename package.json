@@ -2,6 +2,7 @@
   "name": "myIonicNotes",
   "version": "1.1.1",
   "description": "temp: An Ionic project",
+  "main": "ionic serve",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
