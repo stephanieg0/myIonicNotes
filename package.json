@@ -4,7 +4,8 @@
   "description": "temp: An Ionic project",
   "main": "ionic serve",
   "scripts": {
-    "start": "ionic serve"
+    "start": "node server.js",
+    "dev": "node server.js"
     },
   "dependencies": {
     "express": "^4.13.4",
