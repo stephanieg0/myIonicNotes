@@ -113,3 +113,9 @@
   font-weight: 700;
   color: white;
 }
+
+@media (min-width: 2000px) {
+  #background-image {
+    background-size: 2000px;
+  }
+}
