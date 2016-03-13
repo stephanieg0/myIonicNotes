@@ -114,7 +114,7 @@
   color: white;
 }
 
-@media (min-width: 2000px) {
+@media (min-width: 1300px) {
   #background-image {
     background-size: 2000px;
   }
